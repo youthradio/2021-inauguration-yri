@@ -1,14 +1,12 @@
 <template>
-  <div class="vh-100-ns flex flex-column bg-dark-gray assistant relative">
+  <div class="vh-100-ns flex flex-column assistant relative">
     <MenuHeader class="z-10" :menu-fixed="true" />
     <!-- Slider div container -->
     <div ref="container" class="h-100 w-100">
       <!-- Additional required wrapper -->
       <div>
         <!-- Slides -->
-        <div
-          class="h-100 min-vh-100 bg-dark-gray flex justify-center items-center relative"
-        >
+        <div class="h-100 min-vh-100 flex justify-center items-center relative">
           <div class="flex items-center absolute w-100 h-100 items-end">
             <div class="absolute w-100 h-100 z--1 op o-50">
               <video
@@ -66,21 +64,13 @@
             </div>
           </article>
         </div>
-        <article class="mw8 ml6-ns ph3 relative center tc">
-          <div v-for="song in songs" :key="song.song_name" class="flex">
-            <div class="w-30">
-              <img
-                class="db w-100"
-                :srcset="song.track.album_srcset"
-                :src="song.track.album_src"
-                loading="lazy"
-              />
-            </div>
-            <div class="w-70">
-              <h2>{{ song.song_name }}</h2>
-              <h3>{{ song.artist }}</h3>
-              <div v-html="song.text"></div>
-            </div>
+        <article class="mw8 ml6-ns ph3 relative center">
+          <div v-for="song in songs" :key="song.song_name">
+            <SongItem
+              :song="song"
+              :is-playing="playerId === song.id"
+              @play-song="playSong"
+            />
           </div>
         </article>
         <div class="h-100 min-vh-100 flex justify-center items-center relative">
@@ -117,6 +107,7 @@ import CommonUtils from '../mixins/CommonUtils'
 import POSTCONFIG from '../post.config'
 import MenuHeader from '~/components/Header/MenuHeader'
 import ShareContainer from '~/components/Custom/ShareContainer'
+import SongItem from '~/components_local/SongItem'
 
 import ArticleData from '~/data/data.json'
 import Tracks from '~/data/tracks.json'
@@ -125,6 +116,7 @@ export default {
   components: {
     MenuHeader,
     ShareContainer,
+    SongItem,
   },
   mixins: [CommonUtils],
   asyncData(ctx) {
@@ -143,12 +135,34 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      audioPlayer: null,
+      playerId: null,
+      isPlaying: false,
+    }
   },
   computed: {},
   watch: {},
-  mounted() {},
-  methods: {},
+  mounted() {
+    this.audioPlayer = document.createElement('audio')
+    this.audioPlayer.preload = 'metadata'
+    this.audioPlayer.type = 'audio/mpeg'
+  },
+  methods: {
+    playSong({ isPlaying, url, id }) {
+      this.playerId = id
+      if (!isPlaying) {
+        this.audioPlayer.pause()
+        this.audioPlayer.src = url
+        this.audioPlayer.play()
+      } else {
+        this.playerId = null
+        this.isPlaying = false
+        this.audioPlayer.pause()
+        this.audioPlayer.currentTime = 0
+      }
+    },
+  },
 }
 </script>
 
