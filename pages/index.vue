@@ -29,8 +29,8 @@
                 What a Trump-Free White House Sounds Like
               </h1>
               <h3 class="roboto-mono fw3 f3-ns f4 lh-title">10 Songs</h3>
-              <h4 class="assistant normal">By Zoe Harwood</h4>
-              <h4 class="assistant normal">12.02.20</h4>
+              <h4 class="assistant normal">By YR Interactive and YR Arts</h4>
+              <h4 class="assistant normal">01.19.21</h4>
             </article>
             <small class="absolute left-1 bottom-1 o-20"
               >Photo by Youtube / Matthias Niessner</small
@@ -74,7 +74,7 @@
             :key="`scenario-prompt-${i}`"
             :scenario="scenario"
             :next="(i + 1) % scenarios.length"
-            @next-page="nextPage"
+            @next-page="() => {}"
           ></scenario-question>
         </template>
         <div
@@ -118,6 +118,7 @@ import ShareContainer from '~/components/Custom/ShareContainer'
 import ScenarioQuestion from '~/components/Custom/ScenarioQuestion'
 
 import ArticleData from '~/data/data.json'
+import Tracks from '~/data/tracks.json'
 
 export default {
   components: {
@@ -127,9 +128,17 @@ export default {
   },
   mixins: [CommonUtils],
   asyncData(ctx) {
+    const content = ArticleData.content[0]
+    const tracks = Object.fromEntries(Tracks)
+    const articleData = Object.assign({}, content, {
+      songs: content.songs.map((song) =>
+        Object.assign({}, song, { track: tracks[song.id] })
+      ),
+    })
+
     return {
       postData: POSTCONFIG,
-      articleData: ArticleData.content[0],
+      articleData,
       scenarios: ArticleData.content[0].scenarios,
     }
   },

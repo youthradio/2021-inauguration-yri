@@ -21,8 +21,8 @@ module.exports = {
   twitterHandler: '@itsyrmedia',
   docs: [
     {
-      name: 'Deepfake writing assignment - backend',
-      id: '19ZB-U9LdMPbIFjT9RJ8HBh8fCoQnKzoJCDnus9tK_j0',
+      name: '2021-inauguration-yri - backend',
+      id: '1na5DSfBATVAgtImO5mcoZdTtHfD-IDrdq9MePFKCXM8',
     },
   ],
   dataPath: 'data/data.json',
