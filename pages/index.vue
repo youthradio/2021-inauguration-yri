@@ -9,7 +9,7 @@
         <div
           class="h-100 min-vh-100 bg-dark-gray flex justify-center items-center relative"
         >
-          <div class="flex items-center absolute w-100 h-100 white items-end">
+          <div class="flex items-center absolute w-100 h-100 items-end">
             <div class="absolute w-100 h-100 z--1 op o-50">
               <video
                 class="db w-100"
@@ -24,7 +24,7 @@
                 <source src="gifs/open.webp" type="video/webp" />
               </video>
             </div>
-            <article class="measure ml6-ns ph3 relative center tc">
+            <article class="measure ml6-ns ph3 relative center">
               <h1 class="day-sans f1-ns f3 lh-title">
                 What a Trump-Free White House Sounds Like
               </h1>
@@ -37,10 +37,8 @@
             >
           </div>
         </div>
-        <div
-          class="h-100 min-vh-100 bg-dark-gray flex justify-center items-center relative"
-        >
-          <article class="ph3 white flex-ns flex-wrap justify-center h-auto">
+        <div class="h-100 min-vh-100 flex justify-center items-center relative">
+          <article class="ph3 flex-ns flex-wrap justify-center h-auto">
             <div
               class="measure lh-copy center"
               v-html="articleData.intro.text"
@@ -68,19 +66,25 @@
             </div>
           </article>
         </div>
-        <template v-for="(scenario, i) in scenarios">
-          <scenario-question
-            ref="scenarios"
-            :key="`scenario-prompt-${i}`"
-            :scenario="scenario"
-            :next="(i + 1) % scenarios.length"
-            @next-page="() => {}"
-          ></scenario-question>
-        </template>
-        <div
-          class="h-100 min-vh-100 bg-dark-gray flex justify-center items-center relative"
-        >
-          <article class="measure lh-copy ph3 white">
+        <article class="mw8 ml6-ns ph3 relative center tc">
+          <div v-for="song in songs" :key="song.song_name" class="flex">
+            <div class="w-30">
+              <img
+                class="db w-100"
+                :srcset="song.track.album_srcset"
+                :src="song.track.album_src"
+                loading="lazy"
+              />
+            </div>
+            <div class="w-70">
+              <h2>{{ song.song_name }}</h2>
+              <h3>{{ song.artist }}</h3>
+              <div v-html="song.text"></div>
+            </div>
+          </div>
+        </article>
+        <div class="h-100 min-vh-100 flex justify-center items-center relative">
+          <article class="measure lh-copy ph3">
             <div v-html="articleData.conclusion.text"></div>
             <ShareContainer
               :title="postData.title"
@@ -90,10 +94,8 @@
             />
           </article>
         </div>
-        <div
-          class="h-100 min-vh-100 bg-dark-gray flex justify-center items-center relative"
-        >
-          <article class="white measure ml6-ns ph3 relative center lh-copy">
+        <div class="h-100 min-vh-100 flex justify-center items-center relative">
+          <article class="measure ml6-ns ph3 relative center lh-copy">
             <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
             <div v-html="articleData.credits.text"></div>
 
@@ -115,7 +117,6 @@ import CommonUtils from '../mixins/CommonUtils'
 import POSTCONFIG from '../post.config'
 import MenuHeader from '~/components/Header/MenuHeader'
 import ShareContainer from '~/components/Custom/ShareContainer'
-import ScenarioQuestion from '~/components/Custom/ScenarioQuestion'
 
 import ArticleData from '~/data/data.json'
 import Tracks from '~/data/tracks.json'
@@ -124,7 +125,6 @@ export default {
   components: {
     MenuHeader,
     ShareContainer,
-    ScenarioQuestion,
   },
   mixins: [CommonUtils],
   asyncData(ctx) {
@@ -139,7 +139,7 @@ export default {
     return {
       postData: POSTCONFIG,
       articleData,
-      scenarios: ArticleData.content[0].scenarios,
+      songs: articleData.songs,
     }
   },
   data() {
