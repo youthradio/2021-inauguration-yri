@@ -1,7 +1,7 @@
 module.exports = {
-  baseURL: process.env.BASE_URL_PRODUCTION || '/deepfake-quiz',
-  title: `Doing a Double Take: Four Deepfake Scenarios That Mess With Our Minds`,
-  author: 'Zoe Harwood',
+  baseURL: process.env.BASE_URL_PRODUCTION || '/2021-inauguration-yri',
+  title: `What a Trump-Free White House Sounds Like`,
+  author: 'YRI ARTS',
   publishDate: 'Dec. 2, 2020',
   location: 'Oakland, CA',
   description:
