@@ -22,7 +22,7 @@
                 <source src="gifs/open.webp" type="video/webp" />
               </video>
             </div>
-            <article class="measure ml6-ns ph3 relative center">
+            <article class="measure ph3 relative center">
               <h1 class="day-sans f1-ns f3 lh-title">
                 What a Trump-Free White House Sounds Like
               </h1>
@@ -41,7 +41,7 @@
             v-html="articleData.intro.text"
           ></div>
         </article>
-        <article class="mw7 ml6-ns ph3 relative center">
+        <article class="mw7 ph3 relative center">
           <div v-for="song in songs" :key="song.song_name">
             <SongItem
               :song="song"
@@ -55,26 +55,24 @@
             class="measure-wide lh-copy center"
             v-html="articleData.conclusion.text"
           ></div>
-          <ShareContainer
-            :title="postData.title"
-            :description="postData.description"
-            :tweet-message="postData.tweetMessage"
-            :vertical-mode="false"
-          />
         </article>
-        <div class="h-100 min-vh-100 flex justify-center items-center relative">
-          <article class="measure ml6-ns ph3 relative center lh-copy">
-            <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
-            <div v-html="articleData.credits.text"></div>
+        <ShareContainer
+          :title="postData.title"
+          :description="postData.description"
+          :tweet-message="postData.tweetMessage"
+          :vertical-mode="false"
+        />
+        <article class="measure-wide relative center lh-copy pv5">
+          <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
+          <div v-html="articleData.credits.text"></div>
 
-            <template v-for="credit in articleData.credits.list">
-              <dl :key="credit.ttitle" class="lh-title mv2">
-                <dt class="dib b green">{{ credit.title }}:</dt>
-                <dd class="di ml0">{{ credit.names }}</dd>
-              </dl>
-            </template>
-          </article>
-        </div>
+          <template v-for="credit in articleData.credits.list">
+            <dl :key="credit.ttitle" class="lh-title mv2">
+              <dt class="dib b green">{{ credit.title }}:</dt>
+              <dd class="di ml0">{{ credit.names }}</dd>
+            </dl>
+          </template>
+        </article>
       </div>
     </div>
   </div>

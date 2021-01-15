@@ -12,7 +12,7 @@
       </div>
     </a>
     <div class="pl1 pl3-ns grid-title relative flex flex-column flex-row-ns">
-      <div class="ml-auto order-2 flex items-start justify-end pt1">
+      <div class="ml-auto order-2-ns flex items-start justify-end pt1">
         <div
           class="flex items-center"
           :style="{
@@ -41,7 +41,9 @@
           <h2 class="di fw8 lh-title nowrap-ns">{{ song.song_name }}</h2>
           <h2 class="di normal lh-title nowrap-ns">{{ song.artist }}</h2>
         </a>
-        <h4 class="normal lh-title mv0">Selected by {{ song.selected_by }}</h4>
+        <h4 class="normal lh-title mv0">
+          Commentary by {{ song.selected_by }}
+        </h4>
       </div>
     </div>
     <div class="pl3-ns lh-copy grid-text" v-html="song.text"></div>
