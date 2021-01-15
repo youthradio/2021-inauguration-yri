@@ -12,13 +12,22 @@
       </div>
     </a>
     <div class="pl3 grid-title relative flex">
-      <div class="ml-auto order-2">
-        <div v-if="hasLiked" class="ph1">
-          <span class="b">10 </span>
-          <span class="b">Likes</span>
+      <div class="ml-auto order-2 flex items-start">
+        <div
+          class="flex items-center"
+          :style="{
+            visibility: hasLiked && !likesLoading ? 'visible' : 'hidden',
+          }"
+        >
+          <span class="b ph1">{{ likesCount }} </span>
+          <span class="b">{{ likesCount > 1 ? 'Likes' : 'Like' }}</span>
         </div>
-        <a class="pointer db grid-left grow-large" @click.prevent="likeSong">
-          <HeartIcon class="ph1" />
+        <a
+          :disabled="!hasLiked"
+          class="pointer grid-left grow-large"
+          @click.prevent="likeSong"
+        >
+          <HeartIcon :has-liked="hasLiked" class="ph1" />
         </a>
       </div>
       <div class="self-end">
@@ -36,6 +45,7 @@
 <script>
 import PlayPauseIcon from './PlayPauseIcon'
 import HeartIcon from './HeartIcon'
+import { POLLSERVER, POLLID } from '~/post.config'
 
 export default {
   components: {
@@ -56,7 +66,11 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      hasLiked: false,
+      likesCount: '00',
+      likesLoading: false,
+    }
   },
   computed: {},
   watch: {},
@@ -70,6 +84,22 @@ export default {
           id: this.song.id,
         })
       }
+    },
+    async likeSong() {
+      if (this.hasLiked) return
+      this.hasLiked = true
+      this.likesLoading = true
+
+      const res = await fetch(
+        `${POLLSERVER}/vote_poll/${POLLID}/${this.song.like_id}`,
+        {
+          method: 'GET',
+          credentials: 'include',
+        }
+      ).then((res) => res.json())
+      const like = res.poll.options.find((e) => e.id === this.song.like_id)
+      this.likesCount = like.count
+      this.likesLoading = false
     },
   },
 }
