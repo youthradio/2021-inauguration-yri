@@ -38,8 +38,8 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2 class="di fw8 lh-title nowrap-ns">{{ song.song_name }}</h2>
-          <h2 class="di normal lh-title nowrap-ns">{{ song.artist }}</h2>
+          <h2 class="fw8 lh-title mv0">{{ song.song_name }}</h2>
+          <h2 class="normal lh-title mv0">{{ song.artist }}</h2>
         </a>
         <h4 class="normal lh-title mv0">
           Commentary by {{ song.selected_by }}

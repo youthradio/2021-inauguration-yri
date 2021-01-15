@@ -50,7 +50,7 @@
             />
           </div>
         </article>
-        <article class="ph3 justify-center pv5">
+        <article class="ph3 pv5">
           <div
             class="measure-wide lh-copy center"
             v-html="articleData.conclusion.text"
@@ -62,16 +62,18 @@
           :tweet-message="postData.tweetMessage"
           :vertical-mode="false"
         />
-        <article class="measure-wide relative center lh-copy pv5">
-          <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
-          <div v-html="articleData.credits.text"></div>
+        <article class="ph3 pv5">
+          <div class="measure-wide center lh-copy">
+            <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
+            <div v-html="articleData.credits.text"></div>
 
-          <template v-for="credit in articleData.credits.list">
-            <dl :key="credit.ttitle" class="lh-title mv2">
-              <dt class="dib b green">{{ credit.title }}:</dt>
-              <dd class="di ml0">{{ credit.names }}</dd>
-            </dl>
-          </template>
+            <template v-for="credit in articleData.credits.list">
+              <dl :key="credit.ttitle" class="lh-title mv2">
+                <dt class="dib b green">{{ credit.title }}:</dt>
+                <dd class="di ml0">{{ credit.names }}</dd>
+              </dl>
+            </template>
+          </div>
         </article>
       </div>
     </div>
