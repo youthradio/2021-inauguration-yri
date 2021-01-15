@@ -64,7 +64,7 @@
             </div>
           </article>
         </div>
-        <article class="mw8 ml6-ns ph3 relative center">
+        <article class="mw7 ml6-ns ph3 relative center">
           <div v-for="song in songs" :key="song.song_name">
             <SongItem
               :song="song"

@@ -22,25 +22,6 @@ html {
   content: '― ';
   left: -1em;
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
-}
-.grid-col-start-1 {
-  grid-column-start: 1;
-}
-.grid-col-start-2 {
-  grid-column-start: 2;
-}
-.grid-col-1-4 {
-  grid-column: 1 / 4;
-}
-.grid-col-5-7 {
-  grid-column: 5 / 7;
-}
 .mt-auto {
   margin-top: auto;
 }
@@ -53,13 +34,13 @@ html {
 .flex-shrink-1 {
   flex-shrink: 1;
 }
-.flex-grow-0{
+.flex-grow-0 {
   flex-grow: 0;
 }
-.flex-grow-1{
+.flex-grow-1 {
   flex-grow: 1;
 }
-.flex-grow-2{
+.flex-grow-2 {
   flex-grow: 2;
 }
 .bg-oc-washed-red {
@@ -127,15 +108,14 @@ a:focus {
 @media #{$breakpoint-large} {
 }
 
-
-.day-sans{
-  font-family: "Days Sans";
+.day-sans {
+  font-family: 'Days Sans';
 }
-.assistant{
+.assistant {
   font-family: $assistant;
 }
-.roboto-mono{
-  font-family: "Roboto Mono";
+.roboto-mono {
+  font-family: 'Roboto Mono';
 }
 .mw-500 {
   max-width: 500px;

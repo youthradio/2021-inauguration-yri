@@ -5,16 +5,13 @@
     width="40"
     viewBox="0 0 42 42"
   >
-    <g>
-      <circle
-        cx="21"
-        cy="21"
-        r="21"
-        fill="#00EBAB"
-        :class="isPlaying ? 'fade' : ''"
-      />
-      <path d="M30 20l-15 9V12l15 8z" fill="#000" />
-    </g>
+    <circle cx="21" cy="21" r="21" fill="#00EBAB" />
+    <template v-if="isPlaying">
+      <path fill="#000" d="M14 11h5v19h-5zM23 11h5v19h-5z" />
+    </template>
+    <template v-else>
+      <path d="M31 20.844l-14.766 8.525v-17.05L31 20.844z" fill="#000" />
+    </template>
   </svg>
 </template>
 
