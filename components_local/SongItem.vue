@@ -11,8 +11,8 @@
         <PlayPauseIcon :is-playing="isPlaying" class="playpause" />
       </div>
     </a>
-    <div class="pl3 grid-title relative flex">
-      <div class="ml-auto order-2 flex items-start">
+    <div class="pl1 pl3-ns grid-title relative flex flex-column flex-row-ns">
+      <div class="ml-auto order-2 flex items-start justify-end pt1">
         <div
           class="flex items-center"
           :style="{
@@ -30,15 +30,13 @@
           <HeartIcon :has-liked="hasLiked" class="ph1" />
         </a>
       </div>
-      <div class="self-end">
+      <div class="self-end-ns">
         <h2 class="di fw8 lh-title nowrap-ns">{{ song.song_name }}</h2>
         <h2 class="di normal lh-title nowrap-ns">{{ song.artist }}</h2>
-        <h4 class="dn db-ns normal lh-title mv0">
-          Selected by {{ song.selected_by }}
-        </h4>
+        <h4 class="normal lh-title mv0">Selected by {{ song.selected_by }}</h4>
       </div>
     </div>
-    <div class="pl3-ns lh-copy grid-text measure-wide" v-html="song.text"></div>
+    <div class="pl3-ns lh-copy grid-text" v-html="song.text"></div>
   </div>
 </template>
 
@@ -123,7 +121,7 @@ export default {
     grid-row: 1/3;
   }
   @media #{$breakpoint-not-small} {
-    grid-template-columns: minmax(150px, 1fr) 3fr;
+    grid-template-columns: minmax(200px, 1fr) 3fr;
     grid-template-rows: auto;
     .grid-text {
       grid-column: 2;
