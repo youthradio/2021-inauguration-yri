@@ -31,8 +31,16 @@
         </a>
       </div>
       <div class="self-end-ns">
-        <h2 class="di fw8 lh-title nowrap-ns">{{ song.song_name }}</h2>
-        <h2 class="di normal lh-title nowrap-ns">{{ song.artist }}</h2>
+        <a
+          class="db black link dim"
+          :title="`Spotify link to ${song.song_name} ${song.artist}`"
+          :href="song.track.song_url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 class="di fw8 lh-title nowrap-ns">{{ song.song_name }}</h2>
+          <h2 class="di normal lh-title nowrap-ns">{{ song.artist }}</h2>
+        </a>
         <h4 class="normal lh-title mv0">Selected by {{ song.selected_by }}</h4>
       </div>
     </div>
