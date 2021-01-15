@@ -22,11 +22,11 @@
                 <source src="gifs/open.webp" type="video/webp" />
               </video>
             </div>
-            <article class="measure ph3 relative center">
+            <article class="measure-wide ph3 relative center">
               <h1 class="day-sans f1-ns f3 lh-title">
-                What a Trump-Free White House Sounds Like
+                Soundtrack of a <span class="nowrap">Trump-Free</span> White
+                House
               </h1>
-              <h3 class="roboto-mono fw3 f3-ns f4 lh-title">10 Songs</h3>
               <h4 class="assistant normal">By YR Interactive and YR Arts</h4>
               <h4 class="assistant normal">01.19.21</h4>
             </article>

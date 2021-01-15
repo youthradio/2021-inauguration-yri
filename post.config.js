@@ -1,8 +1,8 @@
 module.exports = {
   baseURL: process.env.BASE_URL_PRODUCTION || '/2021-inauguration-yri',
-  title: `What a Trump-Free White House Sounds Like`,
+  title: `Soundtrack of a Trump-Free White House`,
   author: 'YRI ARTS',
-  publishDate: 'Dec. 2, 2020',
+  publishDate: 'Jan. 19, 2021',
   location: 'Oakland, CA',
   description:
     'Deepfakes use artificial intelligence to manipulate a person’s voice and image. From movies to music, news to the workplace, how do we draw the line between the real and the fake?',
