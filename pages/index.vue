@@ -35,35 +35,12 @@
             >
           </div>
         </div>
-        <div class="h-100 min-vh-100 flex justify-center items-center relative">
-          <article class="ph3 flex-ns flex-wrap justify-center h-auto">
-            <div
-              class="measure lh-copy center"
-              v-html="articleData.intro.text"
-            ></div>
-            <div class="center flex items-center h-auto measure ph3-ns">
-              <div>
-                <video
-                  class="db w-100"
-                  autoplay
-                  loop
-                  muted
-                  playsinline
-                  :poster="`${articleData.intro.image}.jpg`"
-                >
-                  <source
-                    :src="`${articleData.intro.image}.webp`"
-                    type="video/webp"
-                  />
-                  <source
-                    :src="`${articleData.intro.image}.mp4`"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-            </div>
-          </article>
-        </div>
+        <article class="ph3 justify-center pv5">
+          <div
+            class="measure-wide lh-copy center"
+            v-html="articleData.intro.text"
+          ></div>
+        </article>
         <article class="mw7 ml6-ns ph3 relative center">
           <div v-for="song in songs" :key="song.song_name">
             <SongItem
@@ -73,17 +50,18 @@
             />
           </div>
         </article>
-        <div class="h-100 min-vh-100 flex justify-center items-center relative">
-          <article class="measure lh-copy ph3">
-            <div v-html="articleData.conclusion.text"></div>
-            <ShareContainer
-              :title="postData.title"
-              :description="postData.description"
-              :tweet-message="postData.tweetMessage"
-              :vertical-mode="false"
-            />
-          </article>
-        </div>
+        <article class="ph3 justify-center pv5">
+          <div
+            class="measure-wide lh-copy center"
+            v-html="articleData.conclusion.text"
+          ></div>
+          <ShareContainer
+            :title="postData.title"
+            :description="postData.description"
+            :tweet-message="postData.tweetMessage"
+            :vertical-mode="false"
+          />
+        </article>
         <div class="h-100 min-vh-100 flex justify-center items-center relative">
           <article class="measure ml6-ns ph3 relative center lh-copy">
             <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
