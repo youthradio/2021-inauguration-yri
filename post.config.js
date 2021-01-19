@@ -1,15 +1,19 @@
+const BASEURL = process.env.BASE_URL_PRODUCTION || '/2021-inauguration-yri'
 module.exports = {
-  baseURL: process.env.BASE_URL_PRODUCTION || '/2021-inauguration-yri',
-  title: `Soundtrack of a Trump-Free White House`,
-  author: 'YRI ARTS',
+  baseURL: BASEURL,
+  title: `A Soundtrack to the Trump-Free White House`,
+  author: 'YR Arts & Interactive Team',
   publishDate: 'Jan. 19, 2021',
   location: 'Oakland, CA',
   description:
-    'Deepfakes use artificial intelligence to manipulate a person’s voice and image. From movies to music, news to the workplace, how do we draw the line between the real and the fake?',
-  tweetMessage: 'with @itsyrmedia',
-  url: 'https://interactive.yr.media/double-take-four-deepfake-scenarios',
-  featureImage:
-    'https://interactive.yr.media/double-take-four-deepfake-scenarios/social.jpg',
+    'Every big life event needs a playlist, and the Biden-Harris inauguration — and first 100 days — are no exception. We asked people celebrating the new administration to co-produce a music line-up for this next phase in American politics. Vote here!',
+  tweetMessage: '@itsyrmedia',
+  url: process.env.BASE_URL_PRODUCTION
+    ? `https://interactive.yr.media/${BASEURL}`
+    : `https://youthradio.github.io/${BASEURL}`,
+  featureImage: process.env.BASE_URL_PRODUCTION
+    ? `https://interactive.yr.media/${BASEURL}/yriHEADWERrectangle_social.jpg`
+    : `https://youthradio.github.io/${BASEURL}/yriHEADWERrectangle_social.jpg`,
   featureImagePath: 'images/template-feature-image',
   featureImageDescription: 'People Protesting BLM',
   featureImageCaption: '(Photo: Andersen Ross Photography Inc/Getty Images)',
