@@ -15,6 +15,8 @@
             sizes="(max-width: 600px) 600w,
             1400w"
             loading="lazy"
+            width="1400"
+            height="875"
             class="db fit-cover max-dim"
             src="yriHEADWERrectangle_feature.jpg"
           />
@@ -25,11 +27,11 @@
           <h3 class="roboto-mono fw3 f3-ns f4 lh-title mb1">OPINION</h3>
 
           <h1 class="day-sans f1-ns f3 lh-title mt">
-            A Soundtrack to the <span class="nowrap">Trump-Free</span> White
+            A Soundtrack for the <span class="nowrap">Trump-Free</span> White
             House
           </h1>
           <h3 class="roboto-mono fw3 f3-ns f4 lh-title">
-            Which Songs Should Drive The Next Four Years?
+            New Administration, New Playlist
           </h3>
           <h4 class="assistant normal">By YR Arts & Interactive Team</h4>
           <h4 class="assistant normal">01.19.21</h4>
