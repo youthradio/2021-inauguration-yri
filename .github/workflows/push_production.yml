@@ -14,7 +14,7 @@ jobs:
           repository: youthradio/base-components
           token: ${{ secrets.GH_PAT_READ_WRITE }}
           path: components
-          
+
       - name: Setup Node
         uses: actions/setup-node@v2-beta
         with:
@@ -31,10 +31,10 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - run: yarn install --frozen-lockfile      
+      - run: yarn install --frozen-lockfile
       - name: Rebuild for Production
         env:
-          BASE_URL_PRODUCTION: /double-take-four-deepfake-scenarios
+          BASE_URL_PRODUCTION: /soundtrack-to-trump-free-white-house
         run: yarn publish-ghpages
 
       - name: Deploy Production
@@ -55,5 +55,5 @@ jobs:
           key: ${{ secrets.key }}
           port: ${{ secrets.PORT }}
           script: |
-            cd static/double-take-four-deepfake-scenarios
+            cd static/soundtrack-to-trump-free-white-house 
             git fetch && git reset --hard FETCH_HEAD && git clean -df
