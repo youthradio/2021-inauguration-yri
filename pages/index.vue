@@ -41,7 +41,10 @@
           v-html="articleData.intro.text"
         ></div>
       </article>
+
       <article class="mw7 ph3 relative center">
+        <div class="f7 o-40 tc" v-html="articleData.terms.text" />
+
         <div v-for="song in songs" :key="song.song_name">
           <SongItem
             :song="song"
