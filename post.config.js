@@ -1,7 +1,7 @@
 const BASEURL = process.env.BASE_URL_PRODUCTION || '2021-inauguration-yri'
 module.exports = {
   baseURL: `/${BASEURL}`,
-  title: `A Soundtrack for the Trump-Free White House`,
+  title: `Opinion - A Soundtrack for the Trump-Free White House`,
   author: 'YR Arts & Interactive Team',
   publishDate: 'Jan. 19, 2021',
   location: 'Oakland, CA',
