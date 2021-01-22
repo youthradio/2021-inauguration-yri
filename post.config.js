@@ -1,4 +1,8 @@
 const BASEURL = process.env.BASE_URL_PRODUCTION || '2021-inauguration-yri'
+const CAN_URL = process.env.BASE_URL_PRODUCTION
+  ? `https://interactive.yr.media/${BASEURL}`
+  : `https://youthradio.github.io/${BASEURL}`
+
 module.exports = {
   baseURL: `/${BASEURL}`,
   title: `Opinion - A Soundtrack for the Trump-Free White House`,
@@ -8,12 +12,8 @@ module.exports = {
   description:
     'Every big life event needs a playlist, and the Biden-Harris inauguration — and first 100 days — are no exception. We asked people celebrating the new administration to co-produce a music line-up for this next phase in American politics. Vote here!',
   tweetMessage: '@itsyrmedia',
-  url: process.env.BASE_URL_PRODUCTION
-    ? `https://interactive.yr.media/${BASEURL}`
-    : `https://youthradio.github.io/${BASEURL}`,
-  featureImage: process.env.BASE_URL_PRODUCTION
-    ? `https://interactive.yr.media/${BASEURL}/yriHEADWERrectangle_social.jpg`
-    : `https://youthradio.github.io/${BASEURL}/yriHEADWERrectangle_social.jpg`,
+  url: CAN_URL,
+  featureImage: `${CAN_URL}/yriHEADWERrectangle_social.jpg`,
   featureImagePath: 'images/template-feature-image',
   featureImageDescription: 'People Protesting BLM',
   featureImageCaption: '(Photo: Andersen Ross Photography Inc/Getty Images)',
